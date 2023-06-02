@@ -79,7 +79,7 @@ const Nav = () => {
                     onClick={() => setToggleDropdown((prev) => !prev)}
                 />
                 {toggleDropdown && (
-                    <ive className="dropdown">
+                    <div className="dropdown">
                         <Link
                             href="/profile"
                             className="dropdown_link"
@@ -87,7 +87,24 @@ const Nav = () => {
                         >
                             My Profile
                         </Link>
-                    </ive>
+                        <Link
+                            href="/create-prompt"
+                            className="dropdown_link"
+                            onClick={() => setToggleDropdown (false)}
+                        >
+                            Create Prompt
+                        </Link>
+                        <button
+                            type="button"
+                            onClick={() => {
+                                setToggleDropdown(false);
+                                signOut();
+                            }}
+                            className="mt-5 w-full black_btn"
+                        >
+                            Sign Out
+                        </button>
+                    </div>
                 )}
                 </div>
             ):(
